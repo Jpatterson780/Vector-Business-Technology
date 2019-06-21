@@ -1,0 +1,410 @@
+/*
+
+font-family: 'Lato', sans-serif;
+Main orange #E67E22
+
+*/
+
+/* ------------------------------------------------------------ */
+/* Basic Setup */
+/* ------------------------------------------------------------ */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: #555;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom:1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Reusable Components */
+/* ------------------------------------------------------------ */
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.box {
+  padding: 1%;
+}
+
+/* ---HEADINGS--- */
+h1, h2, h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 240%;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: #E67E22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+
+
+
+/* ---PARAGRAPHS--- */
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+
+
+
+/* ---ICONS--- */
+.icon-big {
+  font-size: 350%;
+  display: block;
+  color: #E67E22;
+  margin-bottom: 10px;
+}
+
+.icon-small {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #E67E22;
+    font-size: 120%;
+    margin-right: 10px;
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+/* ---BUTTONS--- */
+a:link,
+a:visited {
+    color: #E67E22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #E67E22;
+    transition: border-bottom 0.3s, color 0.3s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+/* ---BUTTONS--- */
+.btn:link,
+.btn:visited,
+input[type=submit] {
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300px;
+  text-decoration: none;
+  border-radius: 200px;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+  background-color: #E67E22;
+  border: 1px solid #E67E22;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #E67E22;
+  color: #E67E22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: #CF6D17
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #CF6D17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #CF6D17;
+  color: #fff;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Header */
+/* ------------------------------------------------------------ */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.phone-row {
+}
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 55px;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #E67E22;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Services */
+/* ------------------------------------------------------------ */
+.section-services .long-copy {
+  margin-bottom: 30px;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Pricing */
+/* ------------------------------------------------------------ */
+.section-pricing {
+  background-color: #F4F4F4;
+}
+
+.price-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #efefef;
+}
+
+.price-box div {
+  padding: 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.price-box div:first-child {
+  background-color: #fcfcfc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.price-box div:last-child {
+  text-align: center;
+  border: 0;
+}
+
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #E67E22;
+}
+
+.plan-price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+
+.plan-price-text {
+  font-size: 80%;
+}
+
+.price-box ul {
+  list-style: none;
+}
+
+.price-box ul li {
+  padding: 5px 0;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* About Us */
+/* ------------------------------------------------------------ */
+.profile{
+  text-align: center;
+}
+
+.profile-img {
+  width: 60%;
+  border-radius: 50%;
+  margin: 20px 0 20px 0;
+}
+
+.profile-logo {
+  width: 65%;
+  margin: 20px 0 20px 0;
+}
+
+.profile-title {
+  border-bottom: 1px solid #E67E22;
+  display: inline-block;
+
+}
+
+.profile p {
+  margin-top: 20px;
+}
+
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Contact Us */
+/* ------------------------------------------------------------ */
+.section-contact {
+    background-color: #F4F4F4;
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Footer */
+/* ------------------------------------------------------------ */
+footer {
+  background-color: #333;
+  padding: 40px 0 20px 0;
+  font-size: 80%;
+}
+
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+
+.footer-nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav li:last-child {
+  margin: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited {
+  text-decoration: none;
+  border: 0;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+  text-decoration: none;
+  border: 0;
+  color: #ddd;
+}
+
+footer p {
+  color: #888;
+  text-align: center;
+  font-size: 90%;
+  margin-top: 20px;
+}
