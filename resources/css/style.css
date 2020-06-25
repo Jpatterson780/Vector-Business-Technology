@@ -368,8 +368,14 @@ header {
   margin-top: 30px;
 }
 
+.web-to-lead-form {
+  font-size: 80%;
+}
 
-
+.form-entity {
+  margin-top: 10px;
+  padding: 5px auto 5px auto;
+}
 
 /* ------------------------------------------------------------ */
 /* Footer */

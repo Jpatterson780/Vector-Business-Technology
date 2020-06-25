@@ -6,11 +6,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <meta charset="utf-8">
     <title>Vector Business Technology</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170786099-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-170786099-2');
+    </script>
   </head>
 
 
@@ -235,13 +244,82 @@
         <div class="row">
           <div class="col span-1-of-2">
             <h3>Sales Inquiries</h3>
-            <p class="long-copy">Give us a phone call at (785) 813-1023!</p>
+            <div id="web-to-lead-form-container" class="web-to-lead-form">
+              <form id="web-to-lead-form">
+                <div class="form-entity">
+                  <input type="text" name="firstName" placeholder="First Name">
+                </div>
+                <div class="form-entity">
+                  <input type="text" name="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-entity">
+                  <input type="email" name="emailAddress" placeholder="Email Address" required>
+                </div>
+                <div class="form-entity">
+                  <input type="phone" name="phoneNumber" placeholder="Phone Number" required>
+                </div>
+                <div class="form-entity">
+                  <button type="submit" name="submit">Submit</button>
+                </div>
+              </form>
+          </div>
+          <script type="text/javascript">
+              var webToLeadFormElement = document.getElementById('web-to-lead-form');
+              var webToLeadFormIsSubmitted = false;
+
+              webToLeadFormElement.addEventListener('submit', function (event) {
+                  event.preventDefault();
+                  if (webToLeadFormIsSubmitted) return;
+                  webToLeadFormIsSubmitted = true;
+                  webToLeadFormElement.submit.setAttribute('disabled', 'disabled');
+
+                  var payloadData = {
+                      firstName: webToLeadFormElement.firstName.value,
+                      lastName: webToLeadFormElement.lastName.value,
+                      emailAddress: webToLeadFormElement.emailAddress.value,
+                      phoneNumber: webToLeadFormElement.phoneNumber.value
+                  };
+
+                  // Needed url can be found on Lead Capture detail view.
+                  var url = 'https://crm.vectorbt.com/api/v1/LeadCapture/fbace6e8cbdaef09c39a6610a54ac284';
+
+                  var xhr = new XMLHttpRequest();
+                  xhr.open('POST', url, true);
+                  xhr.setRequestHeader('Content-Type', 'application/json');
+                  xhr.setRequestHeader('Accept', 'application/json');
+                  xhr.onreadystatechange = function() {
+                      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                          var containerElement = document.getElementById('web-to-lead-form-container');
+                          containerElement.innerHTML = 'Sent';
+                      }
+                  }
+                  xhr.onerror = function() {
+                      webToLeadFormElement.submit.removeAttribute('disabled');
+                      webToLeadFormIsSubmitted = false;
+                  }
+                  xhr.send(JSON.stringify(payloadData));
+              });
+          </script>
           </div>
           <div class="col span-1-of-2">
             <h3>Support Inquiries</h3>
-            <p class="long-copy">Give us a phone call at (785) 813-1023!</p>
+            <p class="long-copy">Give us a phone call at (785) 813-1023, or submit a request!</p>
             <div class="support-btn">
-              <a href="http://support.vectorbt.com" class="btn btn-full">Support Page</a>
+              <button class="support-btn" id="feedback-form">Support</button>
+
+                <script id="zammad_form_script" src="http://192.168.1.195:3200/assets/form/form.js"></script>
+
+                <script>
+                $(function() {
+                  $('#feedback-form').ZammadForm({
+                    messageTitle: 'Support Form',
+                    messageSubmit: 'Submit',
+                    messageThankYou: 'Thank you for your inquiry (#%s)! We\'ll contact you as soon as possible.',
+                    modal: true,
+                    noCSS: false
+                  });
+                });
+              </script>
             </div>
           </div>
         </div>
